@@ -1,4 +1,4 @@
-import { Rocket, Code2, GitBranch, Brain, Palette, Layout, Server, Puzzle, Database, Container, Globe, Workflow, Bot, Trophy } from "lucide-react";
+import { Rocket, Code2, GitBranch, Brain, Palette, Layout, Server, Puzzle, Database, Container, Workflow, Bot, Trophy } from "lucide-react";
 
 export interface SectionDef {
   id: string;

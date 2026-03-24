@@ -26,7 +26,7 @@ const Index = () => (
     <PatternsSection />
     <ModelagemSection />
     <DockerSection />
-    <NexusSection />
+    
     <DevOpsSection />
     <AgentesSection />
     <ConclusaoSection />
