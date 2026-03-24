@@ -2,14 +2,21 @@ import { useState, useEffect, useCallback } from "react";
 import { sections } from "@/data/sections";
 import { ChevronLeft, ChevronRight, PanelLeftClose, PanelLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface PresentationLayoutProps {
   children: React.ReactNode;
 }
 
 const PresentationLayout = ({ children }: PresentationLayoutProps) => {
+  const isMobile = useIsMobile();
   const [activeSection, setActiveSection] = useState(0);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Open sidebar by default on desktop after mount
+  useEffect(() => {
+    if (isMobile === false) setSidebarOpen(true);
+  }, []);
 
   const scrollToSection = useCallback((index: number) => {
     const section = document.getElementById(sections[index].id);
@@ -62,14 +69,28 @@ const PresentationLayout = ({ children }: PresentationLayoutProps) => {
       </div>
 
       {/* Sidebar toggle button - always visible */}
-      <button
+      <motion.button
         onClick={() => setSidebarOpen(!sidebarOpen)}
         className="fixed top-4 z-50 p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors"
-        style={{ left: sidebarOpen ? 268 : 12 }}
+        animate={{ left: sidebarOpen && !isMobile ? 268 : 12 }}
+        transition={{ duration: 0.3 }}
         title={sidebarOpen ? "Fechar menu" : "Abrir menu"}
       >
         {sidebarOpen ? <PanelLeftClose className="w-5 h-5" /> : <PanelLeft className="w-5 h-5" />}
-      </button>
+      </motion.button>
+
+      {/* Mobile overlay */}
+      <AnimatePresence>
+        {sidebarOpen && isMobile && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSidebarOpen(false)}
+            className="fixed inset-0 bg-background/60 backdrop-blur-sm z-30"
+          />
+        )}
+      </AnimatePresence>
 
       {/* Sidebar */}
       <AnimatePresence>
@@ -94,7 +115,7 @@ const PresentationLayout = ({ children }: PresentationLayoutProps) => {
                     key={s.id}
                     onClick={() => {
                       scrollToSection(i);
-                      if (window.innerWidth < 1024) setSidebarOpen(false);
+                      if (isMobile) setSidebarOpen(false);
                     }}
                     className={`nav-item w-full text-left ${isActive ? "nav-item-active" : "nav-item-inactive"}`}
                   >
@@ -120,24 +141,24 @@ const PresentationLayout = ({ children }: PresentationLayoutProps) => {
       </AnimatePresence>
 
       {/* Main content */}
-      <main className={`flex-1 transition-all duration-300 ${sidebarOpen ? "lg:ml-[260px]" : ""}`}>
+      <main className={`flex-1 transition-all duration-300 ${sidebarOpen && !isMobile ? "ml-[260px]" : ""}`}>
         {children}
 
         {/* Navigation buttons */}
-        <div className="fixed bottom-6 right-6 z-40 flex gap-2">
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex gap-2">
           <button
             onClick={() => scrollToSection(Math.max(activeSection - 1, 0))}
             disabled={activeSection === 0}
-            className="p-3 rounded-full glass-card hover:glow-primary transition-all disabled:opacity-30"
+            className="p-2.5 sm:p-3 rounded-full glass-card hover:glow-primary transition-all disabled:opacity-30"
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
           <button
             onClick={() => scrollToSection(Math.min(activeSection + 1, sections.length - 1))}
             disabled={activeSection === sections.length - 1}
-            className="p-3 rounded-full glass-card hover:glow-primary transition-all disabled:opacity-30"
+            className="p-2.5 sm:p-3 rounded-full glass-card hover:glow-primary transition-all disabled:opacity-30"
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
       </main>
