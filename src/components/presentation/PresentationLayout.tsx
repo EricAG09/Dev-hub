@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { sections } from "@/data/sections";
-import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, PanelLeftClose, PanelLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface PresentationLayoutProps {
