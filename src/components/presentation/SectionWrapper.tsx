@@ -10,7 +10,7 @@ interface SectionWrapperProps {
 }
 
 const SectionWrapper = ({ id, title, subtitle, icon, children }: SectionWrapperProps) => (
-  <section id={id} className="min-h-screen flex flex-col justify-center py-16 px-6 md:px-12 lg:px-20">
+  <section id={id} className="min-h-screen flex flex-col justify-center py-12 px-4 sm:px-6 md:px-12 lg:px-20">
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
