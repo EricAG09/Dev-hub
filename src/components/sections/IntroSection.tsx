@@ -1,6 +1,6 @@
 import SectionWrapper from "@/components/presentation/SectionWrapper";
 import SectionCard from "@/components/presentation/SectionCard";
-import { Rocket, Code2, GitBranch, Brain, Palette, Layout, Server, Puzzle, Database, Container, Globe, Workflow, Bot, Trophy } from "lucide-react";
+import { Rocket, Code2, GitBranch, Brain, Palette, Layout, Server, Puzzle, Database, Container, Workflow, Bot } from "lucide-react";
 import { motion } from "framer-motion";
 
 const IntroSection = () => {
