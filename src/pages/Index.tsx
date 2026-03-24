@@ -1,16 +1,36 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import PresentationLayout from "@/components/presentation/PresentationLayout";
+import IntroSection from "@/components/sections/IntroSection";
+import ModelosSection from "@/components/sections/ModelosSection";
+import GitSection from "@/components/sections/GitSection";
+import PromptSection from "@/components/sections/PromptSection";
+import UxUiSection from "@/components/sections/UxUiSection";
+import DesignSystemSection from "@/components/sections/DesignSystemSection";
+import SystemDesignSection from "@/components/sections/SystemDesignSection";
+import PatternsSection from "@/components/sections/PatternsSection";
+import ModelagemSection from "@/components/sections/ModelagemSection";
+import DockerSection from "@/components/sections/DockerSection";
+import NexusSection from "@/components/sections/NexusSection";
+import DevOpsSection from "@/components/sections/DevOpsSection";
+import AgentesSection from "@/components/sections/AgentesSection";
+import ConclusaoSection from "@/components/sections/ConclusaoSection";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
-};
-
-const Index = PlaceholderIndex;
+const Index = () => (
+  <PresentationLayout>
+    <IntroSection />
+    <ModelosSection />
+    <GitSection />
+    <PromptSection />
+    <UxUiSection />
+    <DesignSystemSection />
+    <SystemDesignSection />
+    <PatternsSection />
+    <ModelagemSection />
+    <DockerSection />
+    <NexusSection />
+    <DevOpsSection />
+    <AgentesSection />
+    <ConclusaoSection />
+  </PresentationLayout>
+);
 
 export default Index;
