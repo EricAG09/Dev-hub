@@ -18,8 +18,7 @@ export const sections: SectionDef[] = [
   { id: "patterns", title: "Design Patterns", icon: Puzzle, number: 8 },
   { id: "modelagem", title: "Modelagem de Dados", icon: Database, number: 9 },
   { id: "docker", title: "Docker & Portainer", icon: Container, number: 10 },
-  { id: "nexus", title: "Plataforma Nexus", icon: Globe, number: 11 },
-  { id: "devops", title: "DevOps (CI/CD)", icon: Workflow, number: 12 },
-  { id: "agentes", title: "Agentes de IA", icon: Bot, number: 13 },
-  { id: "conclusao", title: "Conclusão", icon: Trophy, number: 14 },
+  { id: "devops", title: "DevOps (CI/CD)", icon: Workflow, number: 11 },
+  { id: "agentes", title: "Agentes de IA", icon: Bot, number: 12 },
+  { id: "conclusao", title: "Conclusão", icon: Trophy, number: 13 },
 ];
