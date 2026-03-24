@@ -14,7 +14,6 @@ const IntroSection = () => {
     { icon: Puzzle, title: "Design Patterns", desc: "Singleton, Factory, Observer" },
     { icon: Database, title: "Modelagem de Dados", desc: "SQL vs NoSQL, DER" },
     { icon: Container, title: "Docker & Portainer", desc: "Containers, Volumes" },
-    { icon: Globe, title: "Plataforma Nexus", desc: "Arquitetura, Integração" },
     { icon: Workflow, title: "DevOps (CI/CD)", desc: "Pipelines, Deploy" },
     { icon: Bot, title: "Agentes de IA", desc: "AutoGPT, CrewAI" },
   ];
