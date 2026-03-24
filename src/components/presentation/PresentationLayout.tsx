@@ -61,12 +61,14 @@ const PresentationLayout = ({ children }: PresentationLayoutProps) => {
         />
       </div>
 
-      {/* Mobile menu toggle */}
+      {/* Sidebar toggle button - always visible */}
       <button
         onClick={() => setSidebarOpen(!sidebarOpen)}
-        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-lg bg-card border border-border"
+        className="fixed top-4 z-50 p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors"
+        style={{ left: sidebarOpen ? 268 : 12 }}
+        title={sidebarOpen ? "Fechar menu" : "Abrir menu"}
       >
-        {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        {sidebarOpen ? <PanelLeftClose className="w-5 h-5" /> : <PanelLeft className="w-5 h-5" />}
       </button>
 
       {/* Sidebar */}
