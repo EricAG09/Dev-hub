@@ -9,7 +9,7 @@ import SystemDesignSection from "@/components/sections/SystemDesignSection";
 import PatternsSection from "@/components/sections/PatternsSection";
 import ModelagemSection from "@/components/sections/ModelagemSection";
 import DockerSection from "@/components/sections/DockerSection";
-import NexusSection from "@/components/sections/NexusSection";
+
 import DevOpsSection from "@/components/sections/DevOpsSection";
 import AgentesSection from "@/components/sections/AgentesSection";
 import ConclusaoSection from "@/components/sections/ConclusaoSection";
